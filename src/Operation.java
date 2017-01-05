@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /** 
  * @author Michael2397 2692613726@qq.com: 
@@ -7,10 +8,14 @@ import java.util.ArrayList;
  * 类说明 
  */
 public class Operation {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args)  {
 		UpdateDataBase updateDataBase = new UpdateDataBase();
 		GetExcelKeyWord getExcelKeyWord = new GetExcelKeyWord();
-		ArrayList<String> list = getExcelKeyWord.getWordFromExcel();
-		updateDataBase.update(list);
+		try{
+		List<String> list = getExcelKeyWord.getWordFromConfig();
+		updateDataBase.update(list);}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }
